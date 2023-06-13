@@ -1,0 +1,26 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Recombinant AI™",
+  "name_for_model": "RecombinantAI",
+  "description_for_human": "Input a Github repo URL. Get a holistic,deep, relational understanding of the codebase.",
+  "description_for_model": "(1) Plugin accepts a repo url and can list files from any branch to show full git tree. (2) It can provide explainations and pull file content as needed to however in-depth as neccesary. (3) Use this to create repos and delete files and fork repos. Plugin should always start with a high-level view of a repo, but consider the codebase as a whole. This plugin should be used when you need info or context for codebase or file understanding. Plugin's main purpose and help with refactoring and changing code holistically, providing understanding the relationships in code globally and on a function level. (3) If there are any errors in calling the plugin or completing a task, ChatGPT can  check the status messages",
+  "auth": {
+    "type": "none",
+    "client_url": "https://github.com/login/oauth/authorize",
+    "scope": "repo",
+    "authorization_url": "https://github.com/login/oauth/access_token",
+    "authorization_content_type": "application/json",
+    "verification_tokens": {
+        "openai": "6fed0309104e4fdb83ee654aebc52ada"
+    }
+},
+
+  "api": {
+    "type": "openapi",
+    "url": "https://recombinant-ai.markzahm.repl.co/openapi.json",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://recombinant-ai.markzahm.repl.co/plugin_logo",
+  "contact_email": "markz@glassacres.com",
+  "legal_info_url": "http://Recombinant.ai/legal"
+}
