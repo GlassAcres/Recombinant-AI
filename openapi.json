@@ -1,0 +1,198 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Recombinant AI™",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "description": "Root endpoint",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    
+    "/get_repo_files": {
+      "post": {
+        "description": "Use the repo_url and respond with visual directory tree",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RepoData"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/get_file_content": {
+      "post": {
+        "description": "Use the repo_url and file_path and respond with content/explaination",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileData"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/get_status_messages": {
+      "get": {
+        "description": "If action fails or user requests it, respond with the most recent status messages",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "messages": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fork_repo": {
+      "post": {
+        "summary": "Forks a repository",
+        "operationId": "fork_repo",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForkRepoRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Repository forked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Repository forked successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "An error occurred",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "An error occurred"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+},
+    "components": {
+      "schemas": {
+        "RepoData": {
+          "type": "object",
+          "properties": {
+            "repo_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "branch": {
+              "type": "string"
+            },
+            "username": {
+              "type": "string"
+            }
+          },
+          "required": ["repo_url", "username"]
+        },
+        "FileData": {
+          "type": "object",
+          "properties": {
+            "repo_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "path": {
+              "type": "string"
+            },
+            "branch": {
+              "type": "string"
+            },
+            "username": {
+              "type": "string"
+            }
+          },
+          "required": ["repo_url", "path", "username"]
+        },
+         "ForkRepoRequest": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string",
+            "description": "The owner of the repository"
+          },
+          "repo": {
+            "type": "string",
+            "description": "The name of the repository"
+          }
+        },
+        "required": ["owner", "repo"]
+      },
+      }
+    }
+  }
+  
