@@ -139,22 +139,6 @@ def get_file_content(message_handler, owner, repo, branch=None, path=''):
       continue
   return None
 
-def fork_repo(message_handler, owner, repo):
-    try:
-        print_and_store(message_handler, f"Forking repo: {owner}/{repo}")
-        user = g.get_user()
-        repo = user.get_repo(f"{owner}/{repo}")
-        forked_repo = user.create_fork(repo)
-        print_and_store(message_handler, "Repository forked successfully")
-        return forked_repo
-    except GithubException as e:
-        print_and_store(message_handler, f"Failed to fork repository in GitHub API: {e}")
-        return None
-    except Exception as e:
-        print_and_store(message_handler, f"An unexpected error occurred: {e}")
-        return None
-
-
 def create_new_repo(message_handler, name, description='', private=False):
     try:
         print_and_store(message_handler, f"Creating new repo: {name}")
