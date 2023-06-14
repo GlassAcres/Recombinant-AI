@@ -1,7 +1,6 @@
 import json
 import time
 import os
-import github_data_api 
 from typing import Optional
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
@@ -12,7 +11,7 @@ from datetime import datetime
 from supabase_py import create_client, Client
 from starlette.responses import Response
 from starlette.types import Receive, Send, Scope
-from github_data_api import list_files, get_file_content, create_new_repo, list_branches, MessageHandler, log_event, delete_file, fork_repo
+from github_data_api import list_files, get_file_content, create_new_repo, list_branches, MessageHandler, log_event, delete_file
 supabase_url = os.environ['SUPABASE_URL']
 supabase_key = os.environ['SUPABASE_KEY']
 supabase: Client = create_client(supabase_url, supabase_key)
