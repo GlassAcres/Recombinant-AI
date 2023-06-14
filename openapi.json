@@ -80,119 +80,41 @@
           }
         }
       }
-    },
-    "/fork_repo": {
-      "post": {
-        "summary": "Forks a repository",
-        "operationId": "fork_repo",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ForkRepoRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Repository forked successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Repository forked successfully"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "An error occurred",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "An error occurred"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   }
 },
-    "components": {
-      "schemas": {
-        "RepoData": {
-          "type": "object",
-          "properties": {
-            "repo_url": {
-              "type": "string",
-              "format": "uri"
-            },
-            "branch": {
-              "type": "string"
-            },
-            "username": {
-              "type": "string"
-            }
-          },
-          "required": ["repo_url", "username"]
+"components": {
+  "schemas": {
+    "RepoData": {
+      "type": "object",
+      "properties": {
+        "repo_url": {
+          "type": "string",
+          "format": "uri"
         },
-        "FileData": {
-          "type": "object",
-          "properties": {
-            "repo_url": {
-              "type": "string",
-              "format": "uri"
-            },
-            "path": {
-              "type": "string"
-            },
-            "branch": {
-              "type": "string"
-            },
-            "username": {
-              "type": "string"
-            }
-          },
-          "required": ["repo_url", "path", "username"]
-        },
-         "ForkRepoRequest": {
-        "type": "object",
-        "properties": {
-          "owner": {
-            "type": "string",
-            "description": "The owner of the repository"
-          },
-          "repo": {
-            "type": "string",
-            "description": "The name of the repository"
-          }
-        },
-        "required": ["owner", "repo"]
+        "branch": {
+          "type": "string",
+          "default": "main"
+        }
       },
-      }
-    }
+      "required": ["repo_url"]
+    },
+    "FileData": {
+      "type": "object",
+      "properties": {
+        "repo_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "path": {
+          "type": "string"
+        },
+        "branch": {
+          "type": "string",
+          "default": "main"
+        }
+      },
+      "required": ["repo_url", "path"]
+    },
   }
-  
+}
