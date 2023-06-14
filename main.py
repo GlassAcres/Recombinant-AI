@@ -81,9 +81,7 @@ class DeleteFileData(BaseModel):
   branch: Optional[str] = 'main'
 
 class ForkRepoData(BaseModel):
-  owner: str
-  repo: str
-
+  repo_url: str
 
 message_handler = MessageHandler()
 
@@ -136,20 +134,6 @@ async def list_branches_route(data: RepoData):
   branches = list_branches(message_handler, owner, repo)
   return LoggingResponse(content=json.dumps({"branches": branches}),
                          media_type="application/json")
-
-@app.post("/fork_repo")
-async def fork_repo(data: ForkRepoData):
-  try:
-    message_handler = MessageHandler()
-    result = github_data_api.fork_repo(message_handler, data.owner, data.repo)
-    if result:
-      return {"status": "success", "message": "Repository forked successfully"}
-    else:
-      return {"status": "error", "message": "Failed to fork the repository"}
-  except Exception as e:
-    message_handler.print_and_store(f"An error occurred: {e}", supabase)
-    return {"status": "error", "message": str(e)}
-
 
 @app.post("/create_new_repo")
 def create_new_repo_route(data: NewRepoData):
