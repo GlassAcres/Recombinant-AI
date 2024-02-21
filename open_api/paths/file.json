@@ -1,0 +1,203 @@
+{
+  "paths": {
+    "/files/by_user/{user_id}": {
+      "get": {
+        "tags": ["Files"],
+        "summary": "Retrieve all files associated with the user's ID.",
+        "description": "Fetch a list of files linked to a specific user using their unique ID.",
+        "operationId": "getFilesByUserId"
+        },
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of user files.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied."
+          },
+          "404": {
+            "description": "Files for user not found."
+          }
+        }
+      }
+    },
+    "/files/by_project/{project_id}": {
+      "get": {
+        "tags": ["Files"],
+        "summary": "Retrieve all files associated with a project ID.",
+        "description": "Fetch a list of files linked to a specific project_id.",
+        "operationId": "getFilesByProjectId",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "description": "Unique identifier of the project. Must follow UUID format. Only ever use project_id, never use project_name",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of project files.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid project ID supplied."
+          },
+          "404": {
+            "description": "Files for project not found."
+          }
+        }
+      }
+    },
+    "/files/{file_id}": {
+      "get": {
+        "tags": ["Files"],
+        "summary": "Retrieve details of a specific file.",
+        "description": "Fetch detailed information about a file using its unique identifier.",
+        "operationId": "getFileById",
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "description": "Unique identifier of the file. Must follow UUID format.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of file details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid file ID supplied."
+          },
+          "404": {
+            "description": "File not found."
+          }
+        }
+      },
+      "put": {
+        "tags": ["Files"],
+        "summary": "Update details of a specific file.",
+        "description": "Modify the attributes of a file using its unique identifier.",
+        "operationId": "updateFile",
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "description": "Unique identifier of the file to be updated. Must follow UUID format.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "File details to be updated.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Files"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful update of file details."
+          },
+          "400": {
+            "description": "Invalid input or file ID supplied."
+          },
+          "404": {
+            "description": "File to be updated not found."
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Files"],
+        "summary": "Delete a specific file.",
+        "description": "Remove a file from the system using its unique identifier.",
+        "operationId": "deleteFile",
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "description": "Unique identifier of the file to be deleted. Must follow UUID format.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful deletion of the file."
+          },
+          "400": {
+            "description": "Invalid file ID supplied."
+          },
+          "404": {
+            "description": "File to be deleted not found."
+          }
+        }
+      }
+    },
+    "/files": {
+      "post": {
+        "tags": ["Files"],
+        "summary": "Create a new file.",
+        "description": "Add a new file to the system with the provided details.",
+        "operationId": "createFile",
+        "requestBody": {
+          "description": "Details of the file to be created.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/File"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful creation of the file."
+          },
+          "400": {
+            "description": "Invalid input supplied."
+          }
+        }
+      }
+    }
+  }
+}

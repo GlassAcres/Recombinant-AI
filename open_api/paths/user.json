@@ -1,0 +1,58 @@
+{
+  "get": {
+    "operationId": "Get User",
+    "description": "Endpoint to retrieve user profile and project history",
+    "responses": {
+      "200": {
+        "description": "OK"
+      }
+    }
+  },
+  "post": {
+    "operationId": "Create User",
+    "description": "Endpoint to create a new user",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/UserData.json"
+          }
+        }
+      },
+      "required": true
+    },
+    "responses": {
+      "200": {
+        "description": "OK"
+      }
+    }
+  },
+  "delete": {
+    "operationId": "Delete User",
+    "description": "Endpoint to delete a user",
+    "responses": {
+      "200": {
+        "description": "OK"
+      }
+    }
+  },
+  "put": {
+    "operationId": "Update User",
+    "description": "Endpoint to update a user",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/UserData.json"
+          }
+        }
+      },
+      "required": true
+    },
+    "responses": {
+      "200": {
+        "description": "OK"
+      }
+    }
+  }
+}

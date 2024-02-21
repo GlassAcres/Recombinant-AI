@@ -1,0 +1,30 @@
+{
+  "get": {
+    "operationId": "Get Help",
+    "description": "Endpoint to provide help with errors or best practices",
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "steps": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HelpStep"
+                  }
+                }
+              },
+              "required": ["message", "steps"]
+            }
+          }
+        }
+      }
+    }
+  }
+}

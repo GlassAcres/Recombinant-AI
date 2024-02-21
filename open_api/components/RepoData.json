@@ -1,0 +1,32 @@
+{
+  
+"type": "object",
+"properties": {
+    "repo_url": {
+        "type": "string"
+    },
+    "branch": {
+        "type": "string",
+        "nullable": true
+    },
+    "files": {
+        "type": "array",
+        "items": {
+            "type": "string"
+        },
+        "nullable": true
+    },
+    "chunk": {
+        "type": "string",
+        "nullable": true
+    },
+    "message": {
+        "type": "string",
+        "nullable": true
+    },
+    "uuid": {
+        "type": "string",
+        "nullable": true
+    }
+  }  
+}

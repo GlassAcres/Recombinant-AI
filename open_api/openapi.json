@@ -1,0 +1,36 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Recombinant AI™",
+    "version": "1.0.0"
+  },
+  "servers": "https://recombinant-ai.markzahm.repl.co"
+  
+  "paths": {
+    "/": { "$ref": "paths/root.json" },
+    "/welcome": { "$ref": "paths/welcome.json" },
+    "/help": { "$ref": p"paths/help.json" },
+    "/get_repo_files": { "$ref": "paths/get_repo_files.json" },
+    "/get_file_content": { "$ref": "paths/get_file_content.json" },
+    "/get_status_messages": { "$ref": "paths/get_status_messages.json" },
+    "/user": { "$ref": "paths/user.json" },
+    "/project": { "$ref": "open_api/paths/project.json" },
+    "/file":{"$ref": "open_api/paths/Files.json"},
+    "/settings": { "$ref": "paths/settings.json" },
+    
+   
+  },
+  "components": {
+    "schemas": {
+      "RepoData": { "$ref": "components/RepoData.json" },
+      "FileData": { "$ref": "components/FileData.json" },
+      "ChunkData": {"$ref": "components/ChunkData.json"},
+      "UserData": { "$ref": "components/UserData.json" },
+      "ProjectData": { "$ref": "components/ProjectData.json" },
+      "Setting": { "$ref": "components/Setting.json" },
+      "File": {"$ref": "components/Files.json"},
+      "HelpStep": { "$ref": "components/HelpStep.json" },
+      "StatusData": { "$ref": "components/StatusData.json" }
+    }
+  }
+}

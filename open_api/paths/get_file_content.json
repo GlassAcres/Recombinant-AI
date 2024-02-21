@@ -1,0 +1,21 @@
+{
+  "post": {
+    "operationId": "Get File Content",
+    "description": "Endpoint to pull file content from a given path",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/FileData.json"
+          }
+        }
+      },
+      "required": true
+    },
+    "responses": {
+      "200": {
+        "description": "OK"
+      }
+    }
+  }
+}

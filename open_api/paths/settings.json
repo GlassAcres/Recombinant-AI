@@ -1,0 +1,136 @@
+{
+  "/settings": {
+    "post": {
+      "summary": "Create a new setting",
+      "tags": ["Settings"],
+      "requestBody": {
+        "description": "Settings data to create",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Settings"
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "Setting created successfully",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Settings"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request"
+        },
+        "500": {
+          "description": "Internal server error"
+        }
+      }
+    },
+    "put": {
+      "summary": "Update a setting",
+      "tags": ["Settings"],
+      "requestBody": {
+        "description": "Settings data to update",
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Settings"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Setting updated successfully",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Settings"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad request"
+        },
+        "404": {
+          "description": "Setting not found"
+        },
+        "500": {
+          "description": "Internal server error"
+        }
+      }
+    }
+  },
+  "/settings/by_user/{user_id}": {
+    "get": {
+      "summary": "Get settings by user ID",
+      "tags": ["Settings"],
+      "parameters": [
+        {
+          "name": "user_id",
+          "in": "path",
+          "description": "User ID to retrieve settings for",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Settings retrieved successfully",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Settings"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Settings not found for the given user ID"
+        },
+        "500": {
+          "description": "Internal server error"
+        }
+      }
+    }
+  },
+  "/settings/{setting_id}": {
+    "delete": {
+      "summary": "Delete a setting by ID",
+      "tags": ["Settings"],
+      "parameters": [
+        {
+          "name": "setting_id",
+          "in": "path",
+          "description": "Setting ID to delete",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Setting deleted successfully"
+        },
+        "404": {
+          "description": "Setting not found"
+        },
+        "500": {
+          "description": "Internal server error"
+        }
+      }
+    }
+  }
+}

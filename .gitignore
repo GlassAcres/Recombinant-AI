@@ -1,0 +1,8 @@
+venv
+__pycache__
+.git
+.config
+.replit
+replit.nix
+upm
+**/*(stg)

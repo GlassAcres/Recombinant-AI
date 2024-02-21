@@ -1,0 +1,47 @@
+{
+  "/get_chunk": {
+    "get": {
+      "tags": ["Chunking"],
+      "summary": "Retrieve a specific chunk of data.",
+      "description": "Given a UUID and a chunk number, this endpoint retrieves the specified chunk of data.",
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "query",
+          "description": "The unique identifier for the chunked data.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "chunk_number",
+          "in": "query",
+          "description": "The chunk number to retrieve.",
+          "required": true,
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Successful retrieval of the chunk.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChunkedResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Invalid input or chunk number."
+        },
+        "404": {
+          "description": "UUID not found."
+        }
+      }
+    }
+  }
+}

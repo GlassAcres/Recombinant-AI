@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "text": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "required": ["text"]
+}

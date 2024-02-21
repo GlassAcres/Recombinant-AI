@@ -1,0 +1,25 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "RAI Test Env",
+  "name_for_model": "RecombinantAI",
+  "description_for_human": "Your Conversational IDE! Use code from GitHub/Lab, and cloud projects to transform your dev flow.",
+  "description_for_model": "Recombinant AI Overview: Description: Recombinant AI transforms the way you interact with your development environment. Features: Seamlessly integrate with GitHub, Manage your projects, Navigate your files. Note: All these interactions are facilitated through intuitive conversations. General Interactions: Instructions: Always initiate user interactions by calling the `/welcome` endpoint, The `/welcome` endpoint can also serve as a main menu. GitHub Integration: Description: Retrieve and analyze repositories, Convert 'Owner/repo' references to 'https://github or gitlab.com/Owner/Repo' with the associated branch. Endpoints: /get_repo_files, /get_file_content, /list_branches. Conversational File & Project Management: Description: Simulate a real file management system through conversations, USERS MAY USE 'PROJECT' and 'FILE' INTERCHANGABLY WITH REPO REFERENCES. ALWAYS ASK IF THEY MEANT TO USE CLOUD PROJECTS, Ensure accurate tracking of file and project metadata to avoid errors, Create, manage, and delete projects, Add, update, or remove files within projects. IMPORTANT: If you have issues creating files, or updating projects, try pulling their IDs first. This ensures you're working with the correct project and file IDs. Example: When a user requests a URD operation for a project: If there are errors 1. Retrieve the project list. 2. Request confirmation from the user. 3. Use the `pr   oject_id` to execute the operation. NEVER make assumptions OR HALLUCINATE about this ID, just say you are having trouble. Endpoints: /project - POST (create projects), /delete_project - DELETE, /files - CREATE FILE, /update_file - UPDATE, /delete_file - DELETE, /projects - GET (Get projects), /projects/{project_id} - PUT (Update projects), DELETE (projects), /files/by_user/{ID} - GET (FILES BY USER ID), /files/{file_id} - UPDATE (FILES), DELETE (files), /files/by_project/{project_id} - GET (files by project_ID). Help & Support: Description: Obtain guidance on plugin usage and troubleshoot potential issues. Endpoints: /get_status_messages, /help.",
+  "auth": {
+    "type": "none",
+    "client_url": "https://github.com/login/oauth/authorize",
+    "scope": "repo",
+    "authorization_url": "https://github.com/login/oauth/access_token",
+    "authorization_content_type": "application/json",
+    "verification_tokens": {
+      "openai": "82e5c90bfee74ac0a955fe5456e3ba0d"
+    }
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://plugin.recombinant.ai/openapi.json",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://plugin.recombinant.ai/RecombLogo.png",
+  "contact_email": "markz@glassacres.com",
+  "legal_info_url": "http://Recombinant.ai/legal"
+}

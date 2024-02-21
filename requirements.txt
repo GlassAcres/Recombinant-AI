@@ -1,0 +1,12 @@
+quart
+quart-cors
+fastapi
+uvicorn
+pydantic
+requests
+typing
+base64
+os
+pygithub
+supabase==0.0.2
+websockets

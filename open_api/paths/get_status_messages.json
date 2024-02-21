@@ -1,0 +1,26 @@
+{
+  "get": {
+    "operationId": "Get User Status Messages",
+    "description": "Endpoint that can provide recent status and error messaging.",
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "messages": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "../components/schemas/StatusData.json"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

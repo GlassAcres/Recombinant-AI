@@ -1,0 +1,29 @@
+{
+  "post": {
+    "operationId": "Get File List",
+    "description": "Endpoint must translate into either github/gitlab url,  then delivers a nested tree of repo files, or a chunked response if the data is too large.",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../components/schemas/RepoData.json"
+          }
+        }
+      },
+      "required": true
+    },
+    "responses": {
+      "200": {
+        "description": "OK",
+         }
+        }
+      },
+      "400": {
+        "description": "Invalid input."
+      },
+      "404": {
+        "description": "Repository not found."
+      }
+    }
+  }
+}

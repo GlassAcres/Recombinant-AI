@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "Tone": {
+      "type": "string",
+      "description": "The tone setting"
+    },
+    "system_message": {
+      "type": "string",
+      "description": "The system message setting"
+    },
+    "current_task": {
+      "type": "string",
+      "description": "The current task setting"
+    }
+  },
+  "required": []
+}

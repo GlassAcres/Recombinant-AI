@@ -1,0 +1,19 @@
+{
+  "schemas": {  
+        
+    "ChunkedResponse": {
+      "type": "object",
+      "properties": {
+        "chunk": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "uuid": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

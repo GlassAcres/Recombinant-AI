@@ -1,0 +1,11 @@
+{
+  "get": {
+    "operationId": "List Branches",
+    "description": "Endpoint to list all branches of a repository",
+    "responses": {
+      "200": {
+        "description": "OK"
+      }
+    }
+  }
+}

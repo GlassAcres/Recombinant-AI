@@ -1,0 +1,39 @@
+{
+  "get": {
+    "operationId": "Get Project",
+    "description": "Endpoint to retrieve RAI project details",
+    "responses": {
+      "200": {
+        "description": "OK"
+      }
+    }
+  },
+  "post": {
+    "operationId": "Create Project",
+    "description": "Endpoint to create a new RAI project",
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "open_api/components/ProjectData.json"
+          }
+        }
+      },
+      "required": true
+    },
+    "responses": {
+      "200": {
+        "description": "OK"
+      }
+    }
+  },
+  "delete": {
+    "operationId": "Delete Project",
+    "description": "Endpoint to delete an RAI project",
+    "responses": {
+      "200": {
+        "description": "OK"
+      }
+    }
+  }
+}

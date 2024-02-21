@@ -1,0 +1,11 @@
+{
+  "get": {
+    "operationId": "Initiate",
+    "description": "Root endpoint",
+    "responses": {
+      "200": {
+        "description": "OK"
+      }
+    }
+  }
+}

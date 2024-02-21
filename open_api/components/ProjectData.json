@@ -1,0 +1,40 @@
+  {
+  "type": "object",
+  "properties": {
+    },
+    "Project_name": {
+      "type": "string",
+      "description": "Name of the project. Required."
+    },
+    "Summary": {
+      "type": "string",
+      "description": "Brief summary of the project. Required."
+    },
+    "repos_referenced": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of repository URLs referenced in the project."
+    },
+    "Packages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of packages used in the project."
+    },
+    "Files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of files associated with the project."
+    },
+    "Goal": {
+      "type": "string",
+      "description": "Goal or objective of the project. Required."
+    }
+  },
+  "required": ["Project_name", "Summary", "repos_referenced", "Packages", "Files", "Goal"]
+}

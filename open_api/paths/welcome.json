@@ -1,0 +1,24 @@
+{
+  "get": {
+    "operationId": "Welcome",
+    "description": "ALWAYS triggered at the beginning of a session. Greet with their name and ask if they want to view their most recent project.",
+    "responses": {
+      "200": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": ["message"]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "file_name": {
+      "type": "string",
+      "description": "Name of the file. Required."
+    },
+    "project_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "ID of the associated project. Required."
+    },
+    "ID": {
+      "type": "string",
+      "description": "Unique identifier for the file. Required."
+    },
+    "file_type": {
+      "type": "string",
+      "description": "Type of the file (e.g., txt, json). Required."
+    },
+    "file_content": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Content of the file. Can be of various types (string, number, etc.). Required."
+    }
+  },
+  "required": ["file_name", "project_id", "ID",]
+}
